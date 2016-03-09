@@ -49,7 +49,7 @@ $(document).on('keypress', function(e) {
 // Gets the default keys.store from the accessible resources for the extension
 function get_keys() {
     var oRequest = new XMLHttpRequest();
-    oRequest.open("GET", "chrome-extension://aejapjagldkaaloepiamgmadplphkmnc/keys.store", false);
+    oRequest.open("GET", chrome.extension.getURL('') + "keys.store", false);
     //oRequest.setRequestHeader("User-Agent",navigator.userAgent);
     oRequest.send(null);
 
