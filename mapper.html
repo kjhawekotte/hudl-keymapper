@@ -1,11 +1,54 @@
 <html>
     <head>
         <title>Hudl Keymapper</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <style>
+            .center {
+                text-align: center;
+            }
+            .action {
+                padding-left: 10px;
+                text-align: left;
+                color: #fff;
+                font-weight: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-stretch: normal;
+                font-family: 'Open Sans Condensed', sans-serif;
+            }
+            #hotbod {
+                background-color: #4e5d6c;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            #main-heading {
+                color: #ed9827;
+            }
+            table {
+                border-spacing: 0px 1px;
+            }
+            tr:first-child {
+                background-color: rgb(144, 159, 175);;
+            }
+            td {
+                padding: none;
+            }
+            td:nth-child(2) {
+                background-color: white;
+            }
+            td:nth-child(3) {
+                background-color: orange;
+            }
+            input {
+                background-color: inherit;
+                border: none;
+            }
+        </style>
     </head>
 
     <body id="hotbod" style="width: 500px">
         <div id="basketball">
-            <h1 id="main-heading" style="text-align: center;">BASKETBALL</h1>
+            <h1 id="main-heading" class="center">BASKETBALL</h1>
             <table style="width: 100%;">
                 <tr>
                     <th><b>Action</b></th>
@@ -13,54 +56,54 @@
                     <th><b>Team 2 Key</b></th>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Won Tip</td>
-                    <td style="text-align:center;"><input type="text" id="tip_t1" value="t" maxlength="1" style="width: 10%" data-btn="Won Tip"></td>
-                    <td style="text-align:center;"><input type="text" id="tip_t2" value="y" maxlength="1" style="width: 10%" data-btn="Won Tip"></td>
+                    <td class="action">Won Tip</td>
+                    <td class="center"><input type="text" id="tip_t1" value="t" maxlength="1" style="width: 10%" data-btn="Won Tip"></td>
+                    <td class="center"><input type="text" id="tip_t2" value="y" maxlength="1" style="width: 10%" data-btn="Won Tip"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Foul</td>
-                    <td style="text-align:center;"><input type="text" id="foul_t1" value="g" maxlength="1" style="width: 10%" data-btn="Foul"></td>
-                    <td style="text-align:center;"><input type="text" id="foul_t2" value="h" maxlength="1" style="width: 10%" data-btn="Foul"></td>
+                    <td class="action">Foul</td>
+                    <td class="center"><input type="text" id="foul_t1" value="g" maxlength="1" style="width: 10%" data-btn="Foul"></td>
+                    <td class="center"><input type="text" id="foul_t2" value="h" maxlength="1" style="width: 10%" data-btn="Foul"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Timeout</td>
-                    <td style="text-align:center;"><input type="text" id="timeout_t1" value="b" maxlength="1" style="width: 10%" data-btn="Timeout"></td>
-                    <td style="text-align:center;"><input type="text" id="timeout_t2" value="n" maxlength="1" style="width: 10%" data-btn="Timeout"></td>
+                    <td class="action">Timeout</td>
+                    <td class="center"><input type="text" id="timeout_t1" value="b" maxlength="1" style="width: 10%" data-btn="Timeout"></td>
+                    <td class="center"><input type="text" id="timeout_t2" value="n" maxlength="1" style="width: 10%" data-btn="Timeout"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Turnover</td>
-                    <td style="text-align:center;"><input type="text" id="turnover_t1" value="r" maxlength="1" style="width: 10%" data-btn="Turnover"></td>
-                    <td style="text-align:center;"><input type="text" id="turnover_t2" value="t" maxlength="1" style="width: 10%" data-btn="Turnover"></td>
+                    <td class="action">Turnover</td>
+                    <td class="center"><input type="text" id="turnover_t1" value="r" maxlength="1" style="width: 10%" data-btn="Turnover"></td>
+                    <td class="center"><input type="text" id="turnover_t2" value="t" maxlength="1" style="width: 10%" data-btn="Turnover"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Steal</td>
-                    <td style="text-align:center;"><input type="text" id="steal_t1" value="r" maxlength="1" style="width: 10%" data-btn="Steal"></td>
-                    <td style="text-align:center;"><input type="text" id="steal_t2" value="t" maxlength="1" style="width: 10%" data-btn="Steal"></td>
+                    <td class="action">Steal</td>
+                    <td class="center"><input type="text" id="steal_t1" value="r" maxlength="1" style="width: 10%" data-btn="Steal"></td>
+                    <td class="center"><input type="text" id="steal_t2" value="t" maxlength="1" style="width: 10%" data-btn="Steal"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Deflection</td>
-                    <td style="text-align:center;"><input type="text" id="deflection_t1" value="r" maxlength="1" style="width: 10%" data-btn="Deflection"></td>
-                    <td style="text-align:center;"><input type="text" id="deflection_t2" value="t" maxlength="1" style="width: 10%" data-btn="Deflection"></td>
+                    <td class="action">Deflection</td>
+                    <td class="center"><input type="text" id="deflection_t1" value="r" maxlength="1" style="width: 10%" data-btn="Deflection"></td>
+                    <td class="center"><input type="text" id="deflection_t2" value="t" maxlength="1" style="width: 10%" data-btn="Deflection"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">2 FGA</td>
-                    <td style="text-align:center;"><input type="text" id="2fga_t1" value="r" maxlength="1" style="width: 10%" data-btn="2 FGA"></td>
-                    <td style="text-align:center;"><input type="text" id="2fga_t2" value="t" maxlength="1" style="width: 10%" data-btn="2 FGA"></td>
+                    <td class="action">2 FGA</td>
+                    <td class="center"><input type="text" id="2fga_t1" value="r" maxlength="1" style="width: 10%" data-btn="2 FGA"></td>
+                    <td class="center"><input type="text" id="2fga_t2" value="t" maxlength="1" style="width: 10%" data-btn="2 FGA"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">3 FGA</td>
-                    <td style="text-align:center;"><input type="text" id="3fga_t1" value="r" maxlength="1" style="width: 10%" data-btn="3 FGA"></td>
-                    <td style="text-align:center;"><input type="text" id="3fga_t2" value="t" maxlength="1" style="width: 10%" data-btn="3 FGA"></td>
+                    <td class="action">3 FGA</td>
+                    <td class="center"><input type="text" id="3fga_t1" value="r" maxlength="1" style="width: 10%" data-btn="3 FGA"></td>
+                    <td class="center"><input type="text" id="3fga_t2" value="t" maxlength="1" style="width: 10%" data-btn="3 FGA"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Block</td>
-                    <td style="text-align:center;"><input type="text" id="block_t1" value="r" maxlength="1" style="width: 10%" data-btn="Block"></td>
-                    <td style="text-align:center;"><input type="text" id="block_t2" value="t" maxlength="1" style="width: 10%" data-btn="Block"></td>
+                    <td class="action">Block</td>
+                    <td class="center"><input type="text" id="block_t1" value="r" maxlength="1" style="width: 10%" data-btn="Block"></td>
+                    <td class="center"><input type="text" id="block_t2" value="t" maxlength="1" style="width: 10%" data-btn="Block"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Inbounded</td>
-                    <td style="text-align:center;"><input type="text" id="inbounded_t1" value="r" maxlength="1" style="width: 10%" data-btn="Inbounded"></td>
-                    <td style="text-align:center;"><input type="text" id="inbounded_t2" value="t" maxlength="1" style="width: 10%" data-btn="Inbounded"></td>
+                    <td class="action">Inbounded</td>
+                    <td class="center"><input type="text" id="inbounded_t1" value="r" maxlength="1" style="width: 10%" data-btn="Inbounded"></td>
+                    <td class="center"><input type="text" id="inbounded_t2" value="t" maxlength="1" style="width: 10%" data-btn="Inbounded"></td>
                 </tr>
             </table>
 
@@ -70,24 +113,24 @@
                     <th><b>Key</b></th>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Undo</td>
-                    <td style="text-align:center;"><input type="text" id="undo" value="\" maxlength="1" style="width: 10%" data-btn="Undo"></td>
+                    <td class="action">Undo</td>
+                    <td class="center"><input type="text" id="undo" value="\" maxlength="1" style="width: 10%" data-btn="Undo"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">End</td>
-                    <td style="text-align:center;"><input type="text" id="end" value="\" maxlength="1" style="width: 10%" data-btn="End"></td>
+                    <td class="action">End</td>
+                    <td class="center"><input type="text" id="end" value="\" maxlength="1" style="width: 10%" data-btn="End"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Options</td>
-                    <td style="text-align:center;"><input type="text" id="options" value="\" maxlength="1" style="width: 10%" data-btn="Options"></td>
+                    <td class="action">Options</td>
+                    <td class="center"><input type="text" id="options" value="\" maxlength="1" style="width: 10%" data-btn="Options"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Official Timeout</td>
-                    <td style="text-align:center;"><input type="text" id="otimeout" value="\" maxlength="1" style="width: 10%" data-btn="Official Timeout"></td>
+                    <td class="action">Official Timeout</td>
+                    <td class="center"><input type="text" id="otimeout" value="\" maxlength="1" style="width: 10%" data-btn="Official Timeout"></td>
                 </tr>
                 <tr>
-                    <td style="text-align:left;">Jump Ball</td>
-                    <td style="text-align:center;"><input type="text" id="jumpball" value="\" maxlength="1" style="width: 10%" data-btn="Jump Ball"></td>
+                    <td class="action">Jump Ball</td>
+                    <td class="center"><input type="text" id="jumpball" value="\" maxlength="1" style="width: 10%" data-btn="Jump Ball"></td>
                 </tr>
             </table>
         </div>
