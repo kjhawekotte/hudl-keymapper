@@ -1,0 +1,15 @@
+tip,u,i,Won Tip
+foul,j,k,Foul
+timeout,m,.,Timeout
+undo,p,p,Undo
+end,`,`,End
+options,o,o,Options
+turnover,r,t,Turnover
+steal,d,f,Steal
+deflection,c,v,Deflection
+2fga,1,2,2 FGA
+3fga,3,4,3 FGA
+block,5,6,Block
+inbounded,7,8,Inbounded
+otimeout,-,-,Official Timeout
+jumpball,=,=,Jump Ball
