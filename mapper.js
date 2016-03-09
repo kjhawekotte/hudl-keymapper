@@ -1,31 +1,4 @@
 $(document).ready(function() {
-    //,
-    //"usb",
-    //{
-    //  "usbDevices": [
-    //    {
-    //      "vendorId": 1027,
-    //      "productId": 24597
-    //    }
-    //  ]
-    //}
-    //function onDeviceFound(devices) {
-    //  this.devices=devices;
-    //  if (devices) {
-    //    if (devices.length > 0) {
-    //      console.log("Device(s) found: "+devices.length);
-    //    } else {
-    //      console.log("Device could not be found");
-    //    }
-    //  } else {
-    //    console.log("Permission denied.");
-    //  }
-    //}
-    //
-    //chrome.usb.getDevices({"vendorId": vendorId, "productId": productId}, onDeviceFound);
-
-    // ^^ All of that is test code
-
     // This makes sure that we are for sure on a post game breakdown hudl page
     // by grabbing the storage value that is set by the background script to tell us
     // if the current page is hudl or nah
@@ -119,7 +92,7 @@ function convert_to_txt() {
 // Gets the default keys.store from the accessible resources for the extension
 function get_keys() {
     var oRequest = new XMLHttpRequest();
-    oRequest.open("GET", "chrome-extension://ahbkiikoclmfblcohfpnjpjgkggefbdk/keys.store", false);
+    oRequest.open("GET", "chrome-extension://aejapjagldkaaloepiamgmadplphkmnc/keys.store", false);
     oRequest.setRequestHeader("User-Agent",navigator.userAgent);
     oRequest.send(null);
 
