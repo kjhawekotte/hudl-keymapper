@@ -30,7 +30,9 @@ function update_is_hudl(url) {
     var is_hudl = false;
     if (url.indexOf('hudl.com') != -1 && url.indexOf('pgb') != -1) {
         is_hudl = true;
+    } else if (url.indexOf(chrome.extension.getURL('')) != -1) {
+        is_hudl = chrome.storage.local.get('is_hudl');
     }
 
-    chrome.storage.local.set({'is_hudl': true /*is_hudl*/}, function() {});
+    chrome.storage.local.set({'is_hudl': is_hudl}, function() {});
 }
