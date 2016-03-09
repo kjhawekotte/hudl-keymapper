@@ -27,11 +27,11 @@ $(document).on('keypress', function(e) {
                     } else if (action[3] == 'Options') {
                         lookup_class = '.Header-OptionsContainer';
                     } else if (action[3] == 'Official Timeout' || action[3] == 'Jump Ball') {
-                        lookup_class = '.Header-OptionsContainer';
+                        lookup_class = '.Footer-Tag';
                     } else if (index == 1) {
                         lookup_class = '.Tag-TeamOne'
                     } else if (index == 2) {
-                        lookup_class = '.Tag-TeamOne'
+                        lookup_class = '.Tag-TeamTwo'
                     }
                     $(lookup_class).each(function (k, obj) {
                         if (obj.children[0].innerHTML.indexOf(action[3]) != -1) {
@@ -49,7 +49,7 @@ $(document).on('keypress', function(e) {
 // Gets the default keys.store from the accessible resources for the extension
 function get_keys() {
     var oRequest = new XMLHttpRequest();
-    oRequest.open("GET", "chrome-extension://ahbkiikoclmfblcohfpnjpjgkggefbdk/keys.store", false);
+    oRequest.open("GET", "chrome-extension://aejapjagldkaaloepiamgmadplphkmnc/keys.store", false);
     //oRequest.setRequestHeader("User-Agent",navigator.userAgent);
     oRequest.send(null);
 

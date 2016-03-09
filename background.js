@@ -32,5 +32,5 @@ function update_is_hudl(url) {
         is_hudl = true;
     }
 
-    chrome.storage.local.set({'is_hudl': is_hudl}, function() {});
+    chrome.storage.local.set({'is_hudl': true /*is_hudl*/}, function() {});
 }
