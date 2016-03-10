@@ -51,8 +51,18 @@ function set_up_selects() {
     });
     // Set a couple of wanted defaults
     // TODO: Load from a store or set default
-    $('#tag_rm').val("2fga_t1");
-    $('#prev_rm').val("Undo");
+    chrome.storage.local.get('rm_keys', function(response) {
+        if (typeof response.rm_keys == 'undefined')
+        {
+            $('#tag_rm').val("2fga_t1");
+            $('#prev_rm').val("offrebound_t1");
+            $('#rev_rm').val("Undo");
+            $('#next_rm').val("defrebound_t2");
+
+        } else {
+            console.log('turdz')
+        }
+    })
 }
 
 $(document).ready(function () {
@@ -73,7 +83,7 @@ $(document).ready(function () {
     });
 
     // Populate the remote drop downs
-    set_up_selects()
+    set_up_selects();
 
     // Check to see if we have a value stored for remote capabilities and either
     // check the box or get the value from the checkbox
@@ -125,7 +135,7 @@ $(document).ready(function () {
     // TODO: Add ability for arrow keys and other special keys
     // Grab from storage or read from the keys.store file if nothing stored yet
     // Then set the keys...
-    //chrome.storage.local.remove('keys'); // <-- used to flush chrome of keys storage -- DEBUG ONLY
+    // chrome.storage.local.remove('keys'); // <-- used to flush chrome of keys storage -- DEBUG ONLY
     chrome.storage.local.get('keys', function (result) {
         var keys_info = result.keys;
         if (typeof keys_info == 'undefined') {

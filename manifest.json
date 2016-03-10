@@ -21,7 +21,7 @@
     {
       "matches": ["http://www.hudl.com/*", "https://www.hudl.com/*", "http://hudl.com/*", "https://hudl.com/*"],
       "js": ["jquery-2.2.1.min.js", "jquery.color-2.1.2.min.js", "injector_updater.js"],
-      "run_at": "document_idle"
+      "run_at": "document_end"
     }
   ],
   "background": {

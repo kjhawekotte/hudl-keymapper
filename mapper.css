@@ -10,3 +10,15 @@
     width: 15%;
     text-align: center;
 }
+
+select {
+    width: 80%;
+}
+
+.selectable_header {
+    color: green;
+}
+
+.nonselectable_header {
+    color: red;
+}

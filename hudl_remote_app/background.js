@@ -124,10 +124,12 @@ chrome.runtime.onMessageExternal.addListener(
     function (request, sender, sendResponse) {
         if (request.ext_id) {
             extension_id = request.ext_id;
+            //console.log('Setting extension ID.');
             chrome.storage.local.set({'extension_id': extension_id}, function () {
             });
             sendResponse({msg: "complete"});
         } else if (request.herro) {
+            //console.log('Sending connection ID.');
             sendResponse({connection_id: connection_id})
         }
     }

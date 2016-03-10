@@ -79,7 +79,7 @@ function tell_remote_app_about_extension() {
                     if (response.msg != "complete") {
                         console.log('For some reason our extension id sending failed. Sawry.');
                     } else {
-                        //console.log(response.msg);
+                        console.log('ID send success.');
                     }
                 });
             }
