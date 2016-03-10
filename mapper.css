@@ -37,4 +37,5 @@ td:nth-child(3) {
 input {
     background-color: inherit;
     border: none;
+    width: 10%;
 }
