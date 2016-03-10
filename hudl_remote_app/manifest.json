@@ -1,0 +1,22 @@
+{
+  "name": "Hudl USB Adapter",
+  "description": "Test Hudl USB controller connection.",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": [
+        "jquery-2.2.1.min.js",
+        "background.js"
+      ]
+    }
+  },
+  "icons": {
+    "16": "calculator-16.png",
+    "128": "calculator-128.png"
+  },
+  "permissions": [
+    "serial",
+    "storage"
+  ]
+}

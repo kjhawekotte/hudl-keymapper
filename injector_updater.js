@@ -1,5 +1,23 @@
+// Static mappings for remote (TODO: MAKE DYNAMIC)
+var remote_map = {
+"Tag":"u",
+"FF":"",
+"Slow":"",
+"Next":"",
+"Rew":"",
+"Play":"",
+"Rev":"",
+"Prev":"[",
+"Full":"",
+"Key Up":""
+};
+
 // Time to check to see what button the user pressed and click the appropriate tag
 $(document).on('keypress', function(e) {
+    click_tag(String.fromCharCode(e.which))
+});
+
+function click_tag(button) {
     // Get the keys either from storage or from the default keys.store file
     chrome.storage.local.get('keys', function(result) {
         var keys_info = result.keys;
@@ -11,14 +29,14 @@ $(document).on('keypress', function(e) {
         // Loop through the keys and see if any contain the exact key we pressed
         // (Ex: [tip,a,b,Won Top] contains [a] but not [c]
         for (var i = 0; i < keys.length; i++) {
-            if (keys[i].indexOf(String.fromCharCode(e.which)) != -1) {
+            if (keys[i].indexOf(button) != -1) {
                 var action = keys[i];
                 // Make sure that we are on basketball pgb just to be sure
                 var url = window.location.href;
                 if (url.indexOf('basketball') != -1 && url.indexOf('pgb') != -1) {
                     // Look up all classes and see if any of the buttons match our wanted button to be pressed
                     // If so, click it...
-                    var index = action.indexOf(String.fromCharCode(e.which));
+                    var index = action.indexOf(button);
                     var lookup_class;
                     if (action[3] == 'Undo') {
                         lookup_class = '.Undo-Button';
@@ -44,7 +62,7 @@ $(document).on('keypress', function(e) {
             }
         }
     })
-});
+}
 
 // Gets the default keys.store from the accessible resources for the extension
 function get_keys() {
@@ -74,6 +92,10 @@ chrome.runtime.onMessage.addListener(
         if (request.keys == "refresh") {
             inline_inject(null);
             sendResponse({msg: "complete"});
+        }
+        if (request.key_pressed) {
+            console.log('YOU PRESSED:', request.key_pressed);
+            click_tag(remote_map[request.key_pressed])
         }
     }
 );
@@ -125,7 +147,12 @@ function replace_text(key, obj, team) {
         if (obj.children[k].innerHTML.indexOf(key[3]) != -1 && obj.children[k].innerHTML.indexOf("(" + key[team] + ")") == -1) {
         //if (obj.children[k].innerHTML.split(' (')[0] == key[3] || (obj.children[k].innerHTML.split(' (')[0].indexOf("Quarter") && key[3] == "End")) {
             //console.log(obj.children[k].innerHTML + " (" + key[team] + ")");
-            obj.children[k].innerHTML = obj.children[k].innerHTML.split(" (")[0] + " (" + key[team] + ")";
+            var tmp_key = (key[team] != '' ? key[team] : '');
+            if (tmp_key != '') {
+                obj.children[k].innerHTML = obj.children[k].innerHTML.split(" (")[0] + " (" + tmp_key + ")";
+            } else {
+                obj.children[k].innerHTML = obj.children[k].innerHTML.split(" (")[0];
+            }
         }
     }
 }

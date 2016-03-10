@@ -14,7 +14,8 @@
     "activeTab",
     "tabs",
     "https://ajax.googleapis.com/",
-    "storage"
+    "storage",
+    "management"
   ],
   "content_scripts": [
     {
