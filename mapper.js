@@ -266,12 +266,11 @@ $(document).ready(function () {
                 if (response.msg != "complete") {
                     console.log('For some reason our inline injection failed. Sawry.');
                     $('#main-heading').animate({backgroundColor: "#cc0000", color: '#000000'}, 500);
-                    $('#main-heading').animate({backgroundColor: "#000000", color: '#ffffff'}, 1000);
+                    $('#main-heading').animate({backgroundColor: "#4e5d6c", color: '#ed9827'}, 1000);
                 } else {
                     console.log('Injections updated.');
                     $('#main-heading').animate({backgroundColor: "#00cc00", color: "#000000"}, 500);
-                    $('#main-heading').animate({backgroundColor: "#00cc00", color: "#000000"}, 500);
-                    $("#main-heading").animate({backgroundColor: "#000000", color: "#ffffff"}, 1000);
+                    $("#main-heading").animate({backgroundColor: "#4e5d6c", color: "#ed9827"}, 1000);
                 }
             });
         });

@@ -1,12 +1,52 @@
 .input_row {
-    text-align: center;
+    text-align: center
 }
 
 .input_header {
+    padding-left: 10px;
     text-align: left;
+    color: #fff;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#hotbod {
+    background-color: #4e5d6c;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#main-heading {
+    color: #ed9827;
+    text-align: center;
+}
+
+table {
+    border-spacing: 0px 1px;
+}
+
+tr:first-child {
+    background-color: rgb(144, 159, 175);;
+}
+
+td {
+    padding: none;
+}
+
+td:nth-child(2) {
+    background-color: white;
+}
+
+td:nth-child(3) {
+    background-color: orange;
 }
 
 .input_box {
+    background-color: inherit;
+    border: none;
     width: 15%;
     text-align: center;
 }
@@ -16,9 +56,9 @@ select {
 }
 
 .selectable_header {
-    color: green;
+    color: white;
 }
 
 .nonselectable_header {
-    color: red;
+    color: gray;
 }
