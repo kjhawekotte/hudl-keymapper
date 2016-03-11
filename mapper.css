@@ -1,0 +1,24 @@
+.input_row {
+    text-align: center;
+}
+
+.input_header {
+    text-align: left;
+}
+
+.input_box {
+    width: 15%;
+    text-align: center;
+}
+
+select {
+    width: 80%;
+}
+
+.selectable_header {
+    color: green;
+}
+
+.nonselectable_header {
+    color: red;
+}

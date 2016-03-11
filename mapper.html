@@ -1,104 +1,309 @@
 <html>
-    <head>
-        <title>Hudl Keymapper</title>
-    </head>
+<head>
+    <title>Hudl Keymapper</title>
+    <link rel="stylesheet" type="text/css" href="mapper.css">
+</head>
 
-    <body id="hotbod" style="width: 500px">
-        <div id="basketball">
-            <h1 id="main-heading" style="text-align: center;">BASKETBALL</h1>
-            <table style="width: 100%;">
-                <tr>
-                    <th><b>Action</b></th>
-                    <th><b>Team 1 Key</b></th>
-                    <th><b>Team 2 Key</b></th>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Won Tip</td>
-                    <td style="text-align:center;"><input type="text" id="tip_t1" value="t" maxlength="1" style="width: 10%" data-btn="Won Tip"></td>
-                    <td style="text-align:center;"><input type="text" id="tip_t2" value="y" maxlength="1" style="width: 10%" data-btn="Won Tip"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Foul</td>
-                    <td style="text-align:center;"><input type="text" id="foul_t1" value="g" maxlength="1" style="width: 10%" data-btn="Foul"></td>
-                    <td style="text-align:center;"><input type="text" id="foul_t2" value="h" maxlength="1" style="width: 10%" data-btn="Foul"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Timeout</td>
-                    <td style="text-align:center;"><input type="text" id="timeout_t1" value="b" maxlength="1" style="width: 10%" data-btn="Timeout"></td>
-                    <td style="text-align:center;"><input type="text" id="timeout_t2" value="n" maxlength="1" style="width: 10%" data-btn="Timeout"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Turnover</td>
-                    <td style="text-align:center;"><input type="text" id="turnover_t1" value="r" maxlength="1" style="width: 10%" data-btn="Turnover"></td>
-                    <td style="text-align:center;"><input type="text" id="turnover_t2" value="t" maxlength="1" style="width: 10%" data-btn="Turnover"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Steal</td>
-                    <td style="text-align:center;"><input type="text" id="steal_t1" value="r" maxlength="1" style="width: 10%" data-btn="Steal"></td>
-                    <td style="text-align:center;"><input type="text" id="steal_t2" value="t" maxlength="1" style="width: 10%" data-btn="Steal"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Deflection</td>
-                    <td style="text-align:center;"><input type="text" id="deflection_t1" value="r" maxlength="1" style="width: 10%" data-btn="Deflection"></td>
-                    <td style="text-align:center;"><input type="text" id="deflection_t2" value="t" maxlength="1" style="width: 10%" data-btn="Deflection"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">2 FGA</td>
-                    <td style="text-align:center;"><input type="text" id="2fga_t1" value="r" maxlength="1" style="width: 10%" data-btn="2 FGA"></td>
-                    <td style="text-align:center;"><input type="text" id="2fga_t2" value="t" maxlength="1" style="width: 10%" data-btn="2 FGA"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">3 FGA</td>
-                    <td style="text-align:center;"><input type="text" id="3fga_t1" value="r" maxlength="1" style="width: 10%" data-btn="3 FGA"></td>
-                    <td style="text-align:center;"><input type="text" id="3fga_t2" value="t" maxlength="1" style="width: 10%" data-btn="3 FGA"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Block</td>
-                    <td style="text-align:center;"><input type="text" id="block_t1" value="r" maxlength="1" style="width: 10%" data-btn="Block"></td>
-                    <td style="text-align:center;"><input type="text" id="block_t2" value="t" maxlength="1" style="width: 10%" data-btn="Block"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Inbounded</td>
-                    <td style="text-align:center;"><input type="text" id="inbounded_t1" value="r" maxlength="1" style="width: 10%" data-btn="Inbounded"></td>
-                    <td style="text-align:center;"><input type="text" id="inbounded_t2" value="t" maxlength="1" style="width: 10%" data-btn="Inbounded"></td>
-                </tr>
-            </table>
+<body id="hotbod" style="width: 450px; overflow: auto;">
+<div id="basketball">
+    <h1 id="main-heading" style="text-align: center; color: #ffffff; background-color: #000000">BASKETBALL</h1>
+    <table style="width: 100%;">
+        <tr>
+            <th><b>Team Action</b></th>
+            <th><b>Team 1 Key</b></th>
+            <th><b>Team 2 Key</b></th>
+        </tr>
+        <tr>
+            <td class="input_header">Won Tip</td>
+            <td class="input_row"><input type="text" id="tip_t1" value="t" maxlength="1" class="input_box"
+                                         data-btn="Won Tip"></td>
+            <td class="input_row"><input type="text" id="tip_t2" value="y" maxlength="1" class="input_box"
+                                         data-btn="Won Tip"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Foul</td>
+            <td class="input_row"><input type="text" id="foul_t1" value="g" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Foul"></td>
+            <td class="input_row"><input type="text" id="foul_t2" value="h" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Foul"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Timeout</td>
+            <td class="input_row"><input type="text" id="timeout_t1" value="b" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Timeout"></td>
+            <td class="input_row"><input type="text" id="timeout_t2" value="n" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Timeout"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Steal</td>
+            <td class="input_row"><input type="text" id="steal_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Steal"></td>
+            <td class="input_row"><input type="text" id="steal_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Steal"></td>
+        </tr>
+        <tr>
+            <td class="input_header">2 FGA</td>
+            <td class="input_row"><input type="text" id="2fga_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="2 FGA"></td>
+            <td class="input_row"><input type="text" id="2fga_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="2 FGA"></td>
+        </tr>
+        <tr>
+            <td class="input_header">3 FGA</td>
+            <td class="input_row"><input type="text" id="3fga_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="3 FGA"></td>
+            <td class="input_row"><input type="text" id="3fga_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="3 FGA"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Make</td>
+            <td class="input_row"><input type="text" id="make_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Make"></td>
+            <td class="input_row"><input type="text" id="make_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Make"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Off. Rebound</td>
+            <td class="input_row"><input type="text" id="offrebound_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Off. Rebound"></td>
+            <td class="input_row"><input type="text" id="offrebound_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Off. Rebound"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Def. Rebound</td>
+            <td class="input_row"><input type="text" id="defrebound_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Def. Rebound"></td>
+            <td class="input_row"><input type="text" id="defrebound_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Def. Rebound"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Inbounded</td>
+            <td class="input_row"><input type="text" id="inbounded_t1" value="r" maxlength="1"
+                                         class="input_box" data-btn="Inbounded"></td>
+            <td class="input_row"><input type="text" id="inbounded_t2" value="t" maxlength="1"
+                                         class="input_box" data-btn="Inbounded"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Out of Bounds</td>
+            <td class="input_row"><input type="text" id="oob_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Out of Bounds"></td>
+            <td class="input_row"><input type="text" id="oob_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Out of Bounds"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Free Throws</td>
+            <td class="input_row"><input type="text" id="freethrows_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Free Throws"></td>
+            <td class="input_row"><input type="text" id="freethrows_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Free Throws"></td>
+        </tr>
+        <tr>
+            <td class="input_header">FT Make</td>
+            <td class="input_row"><input type="text" id="ftmake_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Make"></td>
+            <td class="input_row"><input type="text" id="ftmake_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Make"></td>
+        </tr>
+        <tr>
+            <td class="input_header">FT Miss</td>
+            <td class="input_row"><input type="text" id="ftmiss_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Miss"></td>
+            <td class="input_row"><input type="text" id="ftmiss_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Miss"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Add Free Throw</td>
+            <td class="input_row"><input type="text" id="addft_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Add Free Throw"></td>
+            <td class="input_row"><input type="text" id="addft_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Add Free Throw"></td>
+        </tr>
+    </table>
+    <hr>
+    <div style="text-align: center;">
+        <input type="button" id="button_static" value="Click here to show/hide advanced button mappings.">
+    </div>
+    <hr class="hideable">
+    <table style="width: 100%;">
+        <tr hidden>
+            <th><b>Team Action</b></th>
+            <th><b>Team 1 Key</b></th>
+            <th><b>Team 2 Key</b></th>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">(Unforced) Turnover</td>
+            <td class="input_row"><input type="text" id="turnover_t1" value="r" maxlength="1"
+                                         class="input_box" data-btn="Turnover"></td>
+            <td class="input_row"><input type="text" id="turnover_t2" value="t" maxlength="1"
+                                         class="input_box" data-btn="Turnover"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Deflection</td>
+            <td class="input_row"><input type="text" id="deflection_t1" value="r" maxlength="1"
+                                         class="input_box" data-btn="Deflection"></td>
+            <td class="input_row"><input type="text" id="deflection_t2" value="t" maxlength="1"
+                                         class="input_box" data-btn="Deflection"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Block</td>
+            <td class="input_row"><input type="text" id="block_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Block"></td>
+            <td class="input_row"><input type="text" id="block_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Block"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Violation</td>
+            <td class="input_row"><input type="text" id="violation_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Violation"></td>
+            <td class="input_row"><input type="text" id="violation_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Violation"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Charge</td>
+            <td class="input_row"><input type="text" id="charge_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Charge"></td>
+            <td class="input_row"><input type="text" id="charge_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Charge"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">FT Violation</td>
+            <td class="input_row"><input type="text" id="ftviolation_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Violation"></td>
+            <td class="input_row"><input type="text" id="ftviolation_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Violation"></td>
+        </tr>
+    </table>
+    <hr>
+    <table style="width: 100%;">
+        <tr>
+            <th><b>Single Action</b></th>
+            <th><b>Key</b></th>
+        </tr>
+        <tr>
+            <td class="input_header">Undo</td>
+            <td class="input_row"><input type="text" id="undo_t1" value="\" maxlength="1" class="input_box"
+                                         data-btn="Undo"></td>
+        </tr>
+        <tr>
+            <td class="input_header">End</td>
+            <td class="input_row"><input type="text" id="end_t1" value="\" maxlength="1" class="input_box"
+                                         data-btn="End"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Options</td>
+            <td class="input_row"><input type="text" id="options_t1" value="\" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Options"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Official Timeout</td>
+            <td class="input_row"><input type="text" id="otimeout_t1" value="\" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Official Timeout"></td>
+        </tr>
+        <tr>
+            <td class="input_header">Jump Ball</td>
+            <td class="input_row"><input type="text" id="jumpball_t1" value="\" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Jump Ball"></td>
+        </tr>
+    </table>
 
-            <table style="width: 500px;">
-                <tr>
-                    <th><b>Action</b></th>
-                    <th><b>Key</b></th>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Undo</td>
-                    <td style="text-align:center;"><input type="text" id="undo" value="\" maxlength="1" style="width: 10%" data-btn="Undo"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">End</td>
-                    <td style="text-align:center;"><input type="text" id="end" value="\" maxlength="1" style="width: 10%" data-btn="End"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Options</td>
-                    <td style="text-align:center;"><input type="text" id="options" value="\" maxlength="1" style="width: 10%" data-btn="Options"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Official Timeout</td>
-                    <td style="text-align:center;"><input type="text" id="otimeout" value="\" maxlength="1" style="width: 10%" data-btn="Official Timeout"></td>
-                </tr>
-                <tr>
-                    <td style="text-align:left;">Jump Ball</td>
-                    <td style="text-align:center;"><input type="text" id="jumpball" value="\" maxlength="1" style="width: 10%" data-btn="Jump Ball"></td>
-                </tr>
-            </table>
+    <br>
+    <hr>
+    <br>
+    <input id="remote_cb" type="checkbox" name="remote" value=""><label id="remote_cb_text"> Use a Hudl USB
+    remote.</label>
+    <label id="help_text"> (If you're having trouble getting things to work make sure the supplied remote app is installed as well as the remote drivers for Win/Mac -- supplied <a target="_blank" href="https://goo.gl/UVU9sq">here</a>.)</label>
+    <br>
+    <div id="remote_div">
+        <table style="width: 100%;">
+            <tr>
+                <th><b>Remote Button</b></th>
+                <th><b>Action</b></th>
+            </tr>
+            <tr>
+                <td class="input_header selectable_header">TAG</td>
+                <td class="input_row"><select class="selectable" id="tag_rm"></select></td>
+            </tr>
+            <tr>
+                <td class="input_header selectable_header">PREV</td>
+                <td class="input_row"><select class="selectable" id="prev_rm"></select></td>
+            </tr>
+            <tr>
+                <td class="input_header selectable_header">NEXT</td>
+                <td class="input_row"><select class="selectable" id="next_rm"></select></td>
+            </tr>
+            <tr>
+                <td class="input_header selectable_header">REV</td>
+                <td class="input_row"><select class="selectable" id="rev_rm"></select></td>
+            </tr>
+            <tr>
+                <td class="input_header selectable_header">FULL</td>
+                <td class="input_row"><select class="selectable" id="full_rm"></select></td>
+            </tr>
+            <tr>
+                <td class="input_header selectable_header">SLOW</td>
+                <td class="input_row"><select class="selectable" id="slow_rm"></select></td>
+            </tr>
+            <tr class="hideable_rm">
+                <td class="input_header nonselectable_header">REW</td>
+                <td class="input_row"><select class="nonselectable" id="rew_rm" disabled>
+                    <option value="rew">Rewind (5 sec.)</option>
+                </select></td>
+            </tr>
+            <tr class="hideable_rm">
+                <td class="input_header nonselectable_header">FF</td>
+                <td class="input_row"><select class="nonselectable" id="ff_rm" disabled>
+                    <option value="ff">Fast Forward (5 sec.)</option>
+                </select></td>
+            </tr>
+            <tr class="hideable_rm">
+                <td class="input_header nonselectable_header">PLAY</td>
+                <td class="input_row"><select class="nonselectable" id="play_rm" disabled>
+                    <option value="play">Play/Pause</option>
+                </select></td>
+            </tr>
+            <tr hidden>
+                <td class="input_header nonselectable_header">KEY UP</td>
+                <td class="input_row"><select class="nonselectable" id="keyup_rm" disabled>
+                    <option value="keyup">Key Up</option>
+                </select></td>
+            </tr>
+        </table>
+        <hr>
+        <div style="text-align: center;">
+            <input type="button" id="remote_static" value="Click here to show/hide static remote button functions.">
         </div>
+        <hr>
+    </div>
+</div>
 
-        <div id="nope" style="display: none; text-align: center;">
-            <h2>Post game breakdown is not active.</h2>
-            <p>Why not go <a href="https://www.hudl.com">login</a>?</p>
-        </div>
+<div id="nope" style="display: none; text-align: center;">
+    <h2>Post game breakdown is not active.</h2>
+    <p>Why not go <a target="_blank" href="https://www.hudl.com">login</a>?</p>
+</div>
 
-        <script src="jquery-2.2.1.min.js"></script>
-        <script src="jquery.color-2.1.2.min.js"></script>
-        <script src="mapper.js"></script>
-    </body>
+<script src="jquery-2.2.1.min.js"></script>
+<script src="jquery.color-2.1.2.min.js"></script>
+<script src="mapper.js"></script>
+</body>
 </html>
