@@ -13,3 +13,15 @@ block,5,6,Block
 inbounded,7,8,Inbounded
 otimeout,-,-,Official Timeout
 jumpball,=,=,Jump Ball
+violation,v,b,Violation
+oob,!,@,Out of Bounds
+charge,C,V,Charge
+freethrows,D,F,Free Throws
+ftmake,F,G,FT Make
+ftmiss,V,B,FT Miss
+ftviolation,r,t,FT Violation
+addft,a,a,Add Free Throw
+make,q,w,Make
+offrebound,e,r,Off. Rebound
+defrebound,d,f,Def. Rebound
+start,,,Start Game
