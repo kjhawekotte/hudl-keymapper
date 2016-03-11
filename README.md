@@ -13,6 +13,7 @@ Allows both use of a keyboard and a USB Hudl remote.
     - Find `Experimental Extension APIs`, and click its `Enable` link
     - Restart Google Chrome
     - Drag and drop (or navigate to) the `hudl_remote_app` subfolder within `hudl-keymapper` at [chrome://extensions](chrome://extensions)
+    - Install the driver from [here](https://goo.gl/UVU9sq). Only tested on Macs...
  - There should now be an icon in the top bar of the Hudl logo overlayed with a keyboard and two new extensions under [chrome://extensions](chrome://extensions)
 
 # Usage
