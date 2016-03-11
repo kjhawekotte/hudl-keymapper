@@ -4,9 +4,9 @@
     <link rel="stylesheet" type="text/css" href="mapper.css">
 </head>
 
-<body id="hotbod" style="width: 400px; overflow: auto;">
+<body id="hotbod" style="width: 450px; overflow: auto;">
 <div id="basketball">
-    <h1 id="main-heading" style="text-align: center;">BASKETBALL</h1>
+    <h1 id="main-heading" style="text-align: center; color: #ffffff; background-color: #000000">BASKETBALL</h1>
     <table style="width: 100%;">
         <tr>
             <th><b>Team Action</b></th>
@@ -39,13 +39,6 @@
                                          data-btn="Timeout"></td>
         </tr>
         <tr>
-            <td class="input_header">(Unforced) Turnover</td>
-            <td class="input_row"><input type="text" id="turnover_t1" value="r" maxlength="1"
-                                         class="input_box" data-btn="Turnover"></td>
-            <td class="input_row"><input type="text" id="turnover_t2" value="t" maxlength="1"
-                                         class="input_box" data-btn="Turnover"></td>
-        </tr>
-        <tr>
             <td class="input_header">Steal</td>
             <td class="input_row"><input type="text" id="steal_t1" value="r" maxlength="1"
                                          class="input_box"
@@ -53,13 +46,6 @@
             <td class="input_row"><input type="text" id="steal_t2" value="t" maxlength="1"
                                          class="input_box"
                                          data-btn="Steal"></td>
-        </tr>
-        <tr>
-            <td class="input_header">Deflection</td>
-            <td class="input_row"><input type="text" id="deflection_t1" value="r" maxlength="1"
-                                         class="input_box" data-btn="Deflection"></td>
-            <td class="input_row"><input type="text" id="deflection_t2" value="t" maxlength="1"
-                                         class="input_box" data-btn="Deflection"></td>
         </tr>
         <tr>
             <td class="input_header">2 FGA</td>
@@ -107,28 +93,11 @@
                                          data-btn="Def. Rebound"></td>
         </tr>
         <tr>
-            <td class="input_header">Block</td>
-            <td class="input_row"><input type="text" id="block_t1" value="r" maxlength="1"
-                                         class="input_box"
-                                         data-btn="Block"></td>
-            <td class="input_row"><input type="text" id="block_t2" value="t" maxlength="1"
-                                         class="input_box"
-                                         data-btn="Block"></td>
-        </tr>
-        <tr>
             <td class="input_header">Inbounded</td>
             <td class="input_row"><input type="text" id="inbounded_t1" value="r" maxlength="1"
                                          class="input_box" data-btn="Inbounded"></td>
             <td class="input_row"><input type="text" id="inbounded_t2" value="t" maxlength="1"
                                          class="input_box" data-btn="Inbounded"></td>
-        </tr>
-        <!-- new stuffs -->
-        <tr>
-            <td class="input_header">Violation</td>
-            <td class="input_row"><input type="text" id="violation_t1" value="" maxlength="1"
-                                         class="input_box" data-btn="Violation"></td>
-            <td class="input_row"><input type="text" id="violation_t2" value="" maxlength="1"
-                                         class="input_box" data-btn="Violation"></td>
         </tr>
         <tr>
             <td class="input_header">Out of Bounds</td>
@@ -136,13 +105,6 @@
                                          class="input_box" data-btn="Out of Bounds"></td>
             <td class="input_row"><input type="text" id="oob_t2" value="" maxlength="1"
                                          class="input_box" data-btn="Out of Bounds"></td>
-        </tr>
-        <tr>
-            <td class="input_header">Charge</td>
-            <td class="input_row"><input type="text" id="charge_t1" value="" maxlength="1"
-                                         class="input_box" data-btn="Charge"></td>
-            <td class="input_row"><input type="text" id="charge_t2" value="" maxlength="1"
-                                         class="input_box" data-btn="Charge"></td>
         </tr>
         <tr>
             <td class="input_header">Free Throws</td>
@@ -166,13 +128,6 @@
                                          class="input_box" data-btn="FT Miss"></td>
         </tr>
         <tr>
-            <td class="input_header">FT Violation</td>
-            <td class="input_row"><input type="text" id="ftviolation_t1" value="" maxlength="1"
-                                         class="input_box" data-btn="FT Violation"></td>
-            <td class="input_row"><input type="text" id="ftviolation_t2" value="" maxlength="1"
-                                         class="input_box" data-btn="FT Violation"></td>
-        </tr>
-        <tr>
             <td class="input_header">Add Free Throw</td>
             <td class="input_row"><input type="text" id="addft_t1" value="" maxlength="1"
                                          class="input_box" data-btn="Add Free Throw"></td>
@@ -180,7 +135,63 @@
                                          class="input_box" data-btn="Add Free Throw"></td>
         </tr>
     </table>
-
+    <hr>
+    <div style="text-align: center;">
+        <input type="button" id="button_static" value="Click here to show/hide advanced button mappings.">
+    </div>
+    <hr class="hideable">
+    <table style="width: 100%;">
+        <tr hidden>
+            <th><b>Team Action</b></th>
+            <th><b>Team 1 Key</b></th>
+            <th><b>Team 2 Key</b></th>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">(Unforced) Turnover</td>
+            <td class="input_row"><input type="text" id="turnover_t1" value="r" maxlength="1"
+                                         class="input_box" data-btn="Turnover"></td>
+            <td class="input_row"><input type="text" id="turnover_t2" value="t" maxlength="1"
+                                         class="input_box" data-btn="Turnover"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Deflection</td>
+            <td class="input_row"><input type="text" id="deflection_t1" value="r" maxlength="1"
+                                         class="input_box" data-btn="Deflection"></td>
+            <td class="input_row"><input type="text" id="deflection_t2" value="t" maxlength="1"
+                                         class="input_box" data-btn="Deflection"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Block</td>
+            <td class="input_row"><input type="text" id="block_t1" value="r" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Block"></td>
+            <td class="input_row"><input type="text" id="block_t2" value="t" maxlength="1"
+                                         class="input_box"
+                                         data-btn="Block"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Violation</td>
+            <td class="input_row"><input type="text" id="violation_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Violation"></td>
+            <td class="input_row"><input type="text" id="violation_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Violation"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">Charge</td>
+            <td class="input_row"><input type="text" id="charge_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="Charge"></td>
+            <td class="input_row"><input type="text" id="charge_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="Charge"></td>
+        </tr>
+        <tr class="hideable">
+            <td class="input_header">FT Violation</td>
+            <td class="input_row"><input type="text" id="ftviolation_t1" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Violation"></td>
+            <td class="input_row"><input type="text" id="ftviolation_t2" value="" maxlength="1"
+                                         class="input_box" data-btn="FT Violation"></td>
+        </tr>
+    </table>
+    <hr>
     <table style="width: 100%;">
         <tr>
             <th><b>Single Action</b></th>
@@ -245,32 +256,49 @@
                 <td class="input_row"><select class="selectable" id="rev_rm"></select></td>
             </tr>
             <tr>
-                <td class="input_header nonselectable_header">FULL</td>
-                <td class="input_row"><select class="nonselectable" id="full_rm" disabled><option value="full">Full Screen</option></select></td>
+                <td class="input_header selectable_header">FULL</td>
+                <td class="input_row"><select class="selectable" id="full_rm"></select></td>
             </tr>
             <tr>
-                <td class="input_header nonselectable_header">SLOW</td>
-                <td class="input_row"><select class="nonselectable" id="slow_rm" disabled><option value="slow">Slow Motion</option></select></td>
+                <td class="input_header selectable_header">SLOW</td>
+                <td class="input_row"><select class="selectable" id="slow_rm"></select></td>
             </tr>
-            <tr>
+            <tr class="hideable_rm">
                 <td class="input_header nonselectable_header">REW</td>
-                <td class="input_row"><select class="nonselectable" id="rew_rm" disabled><option value="rew">Rewind (5 sec.)</option></select></td>
+                <td class="input_row"><select class="nonselectable" id="rew_rm" disabled>
+                    <option value="rew">Rewind (5 sec.)</option>
+                </select></td>
             </tr>
-            <tr>
+            <tr class="hideable_rm">
                 <td class="input_header nonselectable_header">FF</td>
-                <td class="input_row"><select class="nonselectable" id="ff_rm" disabled><option value="ff">Fast Forward</option></select></td>
+                <td class="input_row"><select class="nonselectable" id="ff_rm" disabled>
+                    <option value="ff">Fast Forward (5 sec.)</option>
+                </select></td>
             </tr>
-            <tr>
+            <tr class="hideable_rm">
                 <td class="input_header nonselectable_header">PLAY</td>
-                <td class="input_row"><select class="nonselectable" id="play_rm" disabled><option value="play">Play/Pause</option></select></td>
+                <td class="input_row"><select class="nonselectable" id="play_rm" disabled>
+                    <option value="play">Play/Pause</option>
+                </select></td>
+            </tr>
+            <tr hidden>
+                <td class="input_header nonselectable_header">KEY UP</td>
+                <td class="input_row"><select class="nonselectable" id="keyup_rm" disabled>
+                    <option value="keyup">Key Up</option>
+                </select></td>
             </tr>
         </table>
+        <hr>
+        <div style="text-align: center;">
+            <input type="button" id="remote_static" value="Click here to show/hide static remote button functions.">
+        </div>
+        <hr>
     </div>
 </div>
 
 <div id="nope" style="display: none; text-align: center;">
     <h2>Post game breakdown is not active.</h2>
-    <p>Why not go <a href="https://www.hudl.com">login</a>?</p>
+    <p>Why not go <a target="_blank" href="https://www.hudl.com">login</a>?</p>
 </div>
 
 <script src="jquery-2.2.1.min.js"></script>

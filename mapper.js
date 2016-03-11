@@ -32,7 +32,7 @@ function get_remote_options() {
         } else {
             //option_arr.push("<option value=\"" + input_list[i].getAttribute('data-btn') + "\">" + input_list[i].getAttribute('data-btn') + "</option>")
 
-            option_arr.push([input_list[i].getAttribute('data-btn'), input_list[i].getAttribute('data-btn')]);
+            option_arr.push([input_list[i].getAttribute('data-btn'), input_list[i].getAttribute('id')]);
         }
     }
 
@@ -51,18 +51,66 @@ function set_up_selects() {
     });
     // Set a couple of wanted defaults
     // TODO: Load from a store or set default
-    chrome.storage.local.get('rm_keys', function(response) {
-        if (typeof response.rm_keys == 'undefined')
-        {
+    chrome.storage.local.get('remote_keys', function (result) {
+        if (typeof result.remote_keys == 'undefined') {
             $('#tag_rm').val("2fga_t1");
             $('#prev_rm').val("offrebound_t1");
-            $('#rev_rm').val("Undo");
+            $('#rev_rm').val("undo_t1");
             $('#next_rm').val("defrebound_t2");
+            $('#full_rm').val("make_t1");
+            $('#slow_rm').val("foul_t2");
 
+            var remote_keys = {
+                "Tag": "2fga_t1",
+                "FF": "ff",
+                "Slow": "foul_t2",
+                "Next": "defrebound_t2",
+                "Rew": "rew",
+                "Play": "play",
+                "Rev": "undo_t1",
+                "Prev": "offrebound_t1",
+                "Full": "make_t1",
+                "Key Up": "keyup"
+            };
+            console.log('No default remote button mapping found. Saving default.');
+            chrome.storage.local.set({'remote_keys': remote_keys}, function () {
+            });
         } else {
-            console.log('turdz')
+            var remote_keys = result.remote_keys;
+            $('#tag_rm').val(remote_keys['Tag']);
+            $('#prev_rm').val(remote_keys['Prev']);
+            $('#rev_rm').val(remote_keys['Rev']);
+            $('#next_rm').val(remote_keys['Next']);
+            $('#full_rm').val(remote_keys['Full']);
+            $('#slow_rm').val(remote_keys['Slow']);
         }
-    })
+    });
+
+    chrome.storage.local.get('selects_hidden', function (result) {
+        if (result.selects_hidden == false) {
+            $('.hideable_rm').show();
+            chrome.storage.local.set({'selects_hidden': false}, function () {
+            });
+        } else { // includes when typeof result.selects_hidden == "undefined"
+            $('.hideable_rm').hide();
+            chrome.storage.local.set({'selects_hidden': true}, function () {
+            });
+        }
+    });
+}
+
+function set_up_button_rows() {
+    chrome.storage.local.get('button_rows_hidden', function (result) {
+        if (result.button_rows_hidden == false) {
+            $('.hideable').show();
+            chrome.storage.local.set({'button_rows_hidden': false}, function () {
+            });
+        } else { // includes when typeof result.button_rows_hidden == "undefined"
+            $('.hideable').hide();
+            chrome.storage.local.set({'button_rows_hidden': true}, function () {
+            });
+        }
+    });
 }
 
 $(document).ready(function () {
@@ -84,6 +132,57 @@ $(document).ready(function () {
 
     // Populate the remote drop downs
     set_up_selects();
+    $('#remote_static').click(function () {
+        chrome.storage.local.get('selects_hidden', function (result) {
+            if (result.selects_hidden) {
+                $('.hideable_rm').show();
+                chrome.storage.local.set({'selects_hidden': false}, function () {
+                });
+            } else {
+                $('.hideable_rm').hide();
+                chrome.storage.local.set({'selects_hidden': true}, function () {
+                });
+            }
+        })
+    });
+
+    // Setup hidden table rows
+    set_up_button_rows();
+    $('#button_static').click(function () {
+        chrome.storage.local.get('button_rows_hidden', function (result) {
+            if (result.button_rows_hidden) {
+                $('.hideable').show();
+                chrome.storage.local.set({'button_rows_hidden': false}, function () {
+                });
+            } else {
+                $('.hideable').hide();
+                chrome.storage.local.set({'button_rows_hidden': true}, function () {
+                });
+            }
+        })
+    });
+
+    // What to do when selects change
+    $('select.selectable').change(function (e) {
+        //console.log($('#tag_rm option:selected').val());
+        var remote_keys = {
+            "Tag": "",
+            "FF": "ff",
+            "Slow": "slow",
+            "Next": "",
+            "Rew": "rew",
+            "Play": "play",
+            "Rev": "",
+            "Prev": "",
+            "Full": "",
+            "Key Up": "keyup"
+        };
+        for (var key in remote_keys) {
+            remote_keys[key] = $('#' + key.split(' ').join('').toLowerCase() + "_rm option:selected").val();
+        }
+        chrome.storage.local.set({'remote_keys': remote_keys}, function () {
+        });
+    });
 
     // Check to see if we have a value stored for remote capabilities and either
     // check the box or get the value from the checkbox
@@ -163,12 +262,12 @@ $(document).ready(function () {
             chrome.tabs.sendMessage(tabs[0].id, {keys: "refresh"}, function (response) {
                 if (response.msg != "complete") {
                     console.log('For some reason our inline injection failed. Sawry.');
-                    $('#main-heading').animate({color: '#cc0000'}, 500);
-                    $('#main-heading').animate({color: '#000000'}, 1000);
+                    $('#main-heading').animate({backgroundColor: "#cc0000", color: '#000000'}, 500);
+                    $('#main-heading').animate({backgroundColor: "#000000", color: '#ffffff'}, 1000);
                 } else {
                     console.log('Injections updated.');
-                    $('#main-heading').animate({color: "#00cc00"}, 500);
-                    $("#main-heading").animate({color: "#000000"}, 1000);
+                    $('#main-heading').animate({backgroundColor: "#00cc00", color: "#000000"}, 500);
+                    $("#main-heading").animate({backgroundColor: "#000000", color: "#ffffff"}, 1000);
                 }
             });
         });

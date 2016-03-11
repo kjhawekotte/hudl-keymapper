@@ -1,21 +1,21 @@
-// Static mappings for remote (TODO: MAKE DYNAMIC)
+// Default mappings for remote
 var remote_map = {
-    "Tag": "u",
-    "FF": "",
-    "Slow": "",
-    "Next": "",
-    "Rew": "",
-    "Play": "",
-    "Rev": "",
-    "Prev": "[",
-    "Full": "",
-    "Key Up": ""
+    "Tag": "2fga_t1",
+    "FF": "ff",
+    "Slow": "foul_t2",
+    "Next": "defrebound_t2",
+    "Rew": "rew",
+    "Play": "play",
+    "Rev": "undo_t1",
+    "Prev": "offrebound_t1",
+    "Full": "make_t1",
+    "Key Up": "keyup"
 };
-
+var prev_remote_button = null;
 
 $(document).ready(function () {
     check_boxes();
-    inline_inject(null);
+    //inline_inject(null);
 });
 
 // Mark the setup checkboxes if necessary
@@ -64,6 +64,65 @@ $(document).on('keypress', function (e) {
         click_tag(String.fromCharCode(e.which));
     }
 });
+
+function parse_remote_press(button) {
+    chrome.storage.local.get('remote_keys', function (result) {
+        if (typeof result.remote_keys != "undefined") {
+            remote_map = result.remote_keys;
+        }
+        chrome.storage.local.get('keys', function (result) {
+            var keys_info = result.keys;
+            if (typeof keys_info == 'undefined') {
+                console.log('undef here');
+                keys_info = get_keys();
+            }
+            var keys = keys_info;
+
+            // MATCH THE BUTTON TO AN ENTRY IN remote_map AND THEN
+            // MAP THAT ENTRY (id) TO A BUTTON IN keys AND THEN PASS
+            // THAT VALUE TO click_tag()
+            //click_tag(remote_map[button])
+            // Match button to entry in remote_map
+            var map_name = remote_map[button];
+            var id = map_name.split('_t')[0];
+            var team_num = (map_name.indexOf('_t') == -1 ? -1 : parseInt(map_name.split('_t')[1], 10));
+            // Map to a button in keys
+            if (team_num != -1) {
+                for (var i = 0; i < keys.length; i++) {
+                    if (keys[i][0] == id) {
+                        console.log(keys[i][0], keys[i][team_num]);
+                        click_tag(keys[i][team_num]);
+                        break
+                    }
+                }
+            } else {
+                switch (id) {
+                    case "rew":
+                        prev_remote_button = null;
+                        $('.ControlButton-Rewind5sec')[0].click();
+                        break;
+                    case "ff":
+                        $('.ControlButton-Forward5sec')[0].click();
+                        break;
+                    case "play":
+                        if (prev_remote_button == null) {
+                            prev_remote_button = "play";
+                            $('.ControlIcon-Play')[0].click();
+                        } else {
+                            prev_remote_button = null;
+                            $('.ControlIcon-Pause')[0].click();
+                        }
+                        break;
+                    case "keyup":
+                        break;
+                    default:
+                        console.log('HOW DID YOU GET HERE?! TEACH ME YOUR SORCERY, JOHN CENA.');
+                }
+            }
+        });
+
+    });
+}
 
 function click_tag(button) {
     // Get the keys either from storage or from the default keys.store file
@@ -137,15 +196,15 @@ function get_keys() {
 
 // Listens for a message from the extension popup to tell us if a keymapping has changed
 // and if so, update the inline text
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+        //console.log('Got a message:', request);
         if (request.keys == "refresh") {
             inline_inject(null);
             sendResponse({msg: "complete"});
         }
         if (request.key_pressed) {
-            console.log('YOU PRESSED:', request.key_pressed);
-            click_tag(remote_map[request.key_pressed])
+            //console.log('YOU PRESSED:', request.key_pressed);
+            parse_remote_press(request.key_pressed);
         }
     }
 );

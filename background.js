@@ -4,7 +4,9 @@ var remote_plugged = null;
 // Check to see if hudl when the extension loads
 $(document).ready(function () {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-        update_is_hudl(tabs[0].url);
+        if (tabs.length > 0) {
+            update_is_hudl(tabs[0].url);
+        }
     });
     tell_remote_app_about_extension();
     if (remote_plugged == null) {
@@ -48,7 +50,7 @@ chrome.windows.onFocusChanged.addListener(function (window_id) {
 // Check to see if hudl and update the stored value
 function update_is_hudl(url) {
 
-    is_hudl = is_page_hudl(url);
+    var is_hudl = is_page_hudl(url);
 
     chrome.storage.local.set({'is_hudl': is_hudl}, function () {
     });
@@ -123,6 +125,7 @@ chrome.runtime.onMessageExternal.addListener(
     function (request, sender, sendResponse) {
         if (request.key_pressed) {
             var key_pressed = request.key_pressed;
+            console.log('Tell injector script that you pressed:', key_pressed);
             // Send message to content script
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                 if (tabs.length > 0) {

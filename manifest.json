@@ -29,6 +29,7 @@
     "persistent": true
   },
   "web_accessible_resources": [
-    "keys.store"
+    "keys.store",
+    "theo_listener.js"
   ]
 }
