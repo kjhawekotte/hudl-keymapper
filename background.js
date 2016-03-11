@@ -76,7 +76,7 @@ function tell_remote_app_about_extension() {
         }
 
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-            if (tabs.length > 0 && is_page_hudl(tabs[0].url)) {
+            if (tabs.length > 0 && is_page_hudl(tabs[0].url) && remote_app_info != null) {
                 chrome.runtime.sendMessage(remote_app_info['id'], {ext_id: chrome.runtime.id}, function (response) {
                     if (response.msg != "complete") {
                         console.log('For some reason our extension id sending failed. Sawry.');
