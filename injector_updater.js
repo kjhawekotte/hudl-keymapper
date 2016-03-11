@@ -204,7 +204,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         }
         if (request.key_pressed) {
             //console.log('YOU PRESSED:', request.key_pressed);
-            parse_remote_press(request.key_pressed);
+            chrome.storage.local.get('have_remote', function (result) {
+                if (result.have_remote) {
+                    parse_remote_press(request.key_pressed);
+                }
+            })
         }
     }
 );

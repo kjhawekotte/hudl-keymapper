@@ -7,11 +7,14 @@ function display_remote_status() {
     chrome.storage.local.get('remote_conn', function (res) {
         if (!$('#remote_cb').prop("checked")) {
             $('#remote_cb_text').html(' Use a Hudl USB remote.');
+            $('#help_text').hide();
         } else if (res.remote_conn) {
-            var tmp_txt = $('#remote_cb_text').html() + ' (Remote found)';
+            var tmp_txt = $('#remote_cb_text').html().split(' (')[0] + ' (Remote found)';
+            $('#help_text').hide();
             $('#remote_cb_text').html(tmp_txt);
         } else {
-            var tmp_txt = $('#remote_cb_text').html() + ' (Remote not found)';
+            var tmp_txt = $('#remote_cb_text').html().split(' (')[0] + ' (Remote not found)';
+            $('#help_text').show();
             $('#remote_cb_text').html(tmp_txt);
         }
     })
@@ -267,11 +270,16 @@ $(document).ready(function () {
                 } else {
                     console.log('Injections updated.');
                     $('#main-heading').animate({backgroundColor: "#00cc00", color: "#000000"}, 500);
+                    $('#main-heading').animate({backgroundColor: "#00cc00", color: "#000000"}, 500);
                     $("#main-heading").animate({backgroundColor: "#000000", color: "#ffffff"}, 1000);
                 }
             });
         });
-    })
+    });
+
+    setInterval(function () {
+        display_remote_status()
+    }, 2500);
 });
 
 // Sets the values of the keys in the input areas within the extension popup
